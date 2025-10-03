@@ -141,29 +141,41 @@
 ### Status
 - v0.1.0 released and production-ready
 
-## 2025-10-03 17:00
+## v0.1.1 - 2025-10-03 17:00
+
 ### Added
-- RAG index functionality - organized list of all code elements
-- `code-bridge rag` command with 3 output formats:
-  - `compact` (default): Simple list grouped by type
-  - `type`: Detailed view grouped by type with signatures and docs
-  - `file`: Detailed view grouped by file
-- FormatRAGByFile, FormatRAGByType, FormatRAGCompact functions
-- GetRAGIndex method in Indexer
+- **RAG Index (TOC)** - Table of Contents over hele kodebasen
+  - `code-bridge rag` command med 3 output formater
+  - `compact` (default): Simpel liste grupperet efter type
+  - `type`: Detaljeret visning grupperet efter type med signatures og docs
+  - `file`: Detaljeret visning grupperet efter fil
+- FormatRAGByFile, FormatRAGByType, FormatRAGCompact funktioner
+- GetRAGIndex metode i Indexer
+- Hver RAG entry linket til præcis fil:linje placering
 
 ### Description
-RAG (Retrieval-Augmented Generation) support added as simple, organized
-listing of all indexed code elements. This provides LLMs with a structured
-view of available functions, structs, interfaces, and types in the codebase.
+RAG/TOC support tilføjet som simpel, organiseret listing af alle
+indekserede code elementer. Dette giver LLM'er en struktureret TOC
+over tilgængelige funktioner, structs, interfaces, og types i kodebasen.
 
-No ML embeddings or vector databases - just clean, sorted output from JSONL.
+**Ingen ML embeddings eller vector databases** - bare clean, sorteret output fra JSONL.
+
+Perfekt til LLM context: se hvad der findes → bed om specifik implementation.
 
 ### Usage
 ```bash
-code-bridge rag          # Compact list format
+code-bridge rag          # Compact list format (TOC)
 code-bridge rag type     # Grouped by type with full details
 code-bridge rag file     # Grouped by file with full details
 ```
 
+### Example Output
+```
+## function
+
+- `findGitRepos(root string) ([]string, error)` - main.go:194
+- `generateAICommitMessage(gitDiff string) (string, error)` - main.go:356
+```
+
 ### Status
-- RAG index functionality complete
+- v0.1.1 released with RAG/TOC functionality

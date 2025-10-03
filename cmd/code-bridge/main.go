@@ -12,7 +12,7 @@ import (
 	"github.com/AI-S-Tools/code-bridge/pkg/scanner"
 )
 
-const version = "0.1.0"
+const version = "0.1.1"
 
 func main() {
 	if len(os.Args) < 2 {
