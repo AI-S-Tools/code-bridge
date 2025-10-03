@@ -4,7 +4,7 @@
 [![Go Version](https://img.shields.io/badge/go-1.21+-blue.svg)](https://golang.org/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
-RAG-enabled code indexing and search tool using JSONL format.
+Code indexing and search tool for Go codebases using JSONL format.
 
 **One-line install (Linux/macOS):**
 ```bash
@@ -13,16 +13,25 @@ curl -sSL https://raw.githubusercontent.com/AI-S-Tools/code-bridge/master/instal
 
 ## Overview
 
-Code-Bridge scans your codebase, extracts functions and classes, and stores them in a searchable JSONL index. It provides semantic search capabilities using RAG (Retrieval-Augmented Generation) and allows annotation of code elements without modifying source files.
+Code-Bridge scans your codebase, extracts functions and code elements, and stores them in a searchable JSONL index.
+
+**Current Status (v0.1.0):** Go language support only. Multi-language support coming in future releases.
 
 ## Features
 
-- 🔍 **Code Indexing**: Recursively scan and index entire codebases
+- 🔍 **Code Indexing**: Recursively scan and index Go codebases
 - 🎯 **Precise References**: File and line number references for every code element
-- 🤖 **RAG Search**: Semantic search using natural language queries
-- 🏷️ **Annotations**: Add metadata to code without modifying files
 - 📝 **JSONL Format**: Fast, streamable, line-oriented format
-- 🔧 **Multi-language**: Support for JavaScript, TypeScript, Python, Go, Java, and more
+- 🔧 **Go Parser**: Full support for functions, methods, structs, interfaces, types
+- 🔎 **Search**: Find code by name or content
+- 📊 **Statistics**: Overview by type, language, and file
+- ♻️ **Deduplication**: Hash-based automatic duplicate detection
+
+### Coming Soon (Phase 2+)
+- JavaScript/TypeScript parser
+- Python parser
+- RAG/semantic search
+- Annotations system
 
 ## Installation
 
@@ -112,19 +121,22 @@ Found 3 results:
 
 ## Project Status
 
-✅ **Phase 1 Complete** - Core Infrastructure implemented in Golang
+✅ **v0.1.0 Released** - Go language support
 
-**Currently Supported:**
-- Go language parsing (functions, methods, structs, interfaces, types)
-- JSONL indexing with deduplication
-- CLI commands: init, index, search, stats, rebuild
-- File scanning with .gitignore support
+**What Works Now:**
+- ✅ Go language parsing (functions, methods, structs, interfaces, types)
+- ✅ JSONL indexing with hash-based deduplication
+- ✅ CLI commands: init, index, search, stats, rebuild
+- ✅ Recursive file scanning with .gitignore support
+- ✅ Search by name or content
+- ✅ Statistics and analytics
 
-**Coming Soon (Phase 2):**
-- JavaScript/TypeScript parser
-- Python parser
-- RAG integration
-- Advanced search features
+**Roadmap (Phase 2+):**
+- 🔜 JavaScript/TypeScript parser
+- 🔜 Python parser
+- 🔜 Java parser
+- 🔜 RAG/semantic search integration
+- 🔜 Annotations system
 
 See [TODO](./TODO) for implementation progress and [docs/projektplan.md](./docs/projektplan.md) for detailed project plan.
 
