@@ -6,6 +6,7 @@
 - [DONE] Basic parser (Go language support)
 - [DONE] JSONL indexer (write/read operations)
 - [DONE] CLI grundlæggende struktur
+- [DONE] RAG index (organiseret liste af alle elementer)
 
 ## Fase 2: Search & Retrieval (Uge 3)
 - [ ] Generisk søgning i indeks

@@ -23,6 +23,7 @@ Code-Bridge scans your codebase, extracts functions and code elements, and store
 - 🎯 **Precise References**: File and line number references for every code element
 - 📝 **JSONL Format**: Fast, streamable, line-oriented format
 - 🔧 **Go Parser**: Full support for functions, methods, structs, interfaces, types
+- 🤖 **RAG Index**: Organized listing of all code elements for LLM consumption
 - 🔎 **Search**: Find code by name or content
 - 📊 **Statistics**: Overview by type, language, and file
 - ♻️ **Deduplication**: Hash-based automatic duplicate detection
@@ -70,6 +71,9 @@ code-bridge init
 
 # Index your codebase
 code-bridge index
+
+# List all code elements (RAG format)
+code-bridge rag
 
 # Search for code
 code-bridge search "handler"

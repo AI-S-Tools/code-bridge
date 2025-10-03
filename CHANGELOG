@@ -140,3 +140,30 @@
 
 ### Status
 - v0.1.0 released and production-ready
+
+## 2025-10-03 17:00
+### Added
+- RAG index functionality - organized list of all code elements
+- `code-bridge rag` command with 3 output formats:
+  - `compact` (default): Simple list grouped by type
+  - `type`: Detailed view grouped by type with signatures and docs
+  - `file`: Detailed view grouped by file
+- FormatRAGByFile, FormatRAGByType, FormatRAGCompact functions
+- GetRAGIndex method in Indexer
+
+### Description
+RAG (Retrieval-Augmented Generation) support added as simple, organized
+listing of all indexed code elements. This provides LLMs with a structured
+view of available functions, structs, interfaces, and types in the codebase.
+
+No ML embeddings or vector databases - just clean, sorted output from JSONL.
+
+### Usage
+```bash
+code-bridge rag          # Compact list format
+code-bridge rag type     # Grouped by type with full details
+code-bridge rag file     # Grouped by file with full details
+```
+
+### Status
+- RAG index functionality complete
