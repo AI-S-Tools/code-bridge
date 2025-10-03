@@ -1,0 +1,52 @@
+# Code-Bridge TODO
+
+## Fase 1: Core Infrastructure (Uge 1-2)
+- [ ] Projekt setup og arkitektur
+- [ ] Scanner implementering (rekursiv fil traversering)
+- [ ] Basic parser (JavaScript/TypeScript support)
+- [ ] JSONL indexer (write/read operations)
+- [ ] CLI grundlæggende struktur
+
+## Fase 2: Search & Retrieval (Uge 3)
+- [ ] Generisk søgning i indeks
+- [ ] Specifik søgning (navn, params, returns)
+- [ ] Fil og path filtering
+- [ ] Performance optimering (in-memory indeks)
+
+## Fase 3: RAG Integration (Uge 4)
+- [ ] Embedding model integration
+- [ ] Vector database setup
+- [ ] Semantisk søgning
+- [ ] Relevance ranking
+
+## Fase 4: Annotation System (Uge 5)
+- [ ] Annotation storage (JSONL)
+- [ ] Add/update/delete annotations
+- [ ] Annotation search
+- [ ] UI for annotation management
+
+## Fase 5: Multi-language Support (Uge 6)
+- [ ] Python parser
+- [ ] Go parser
+- [ ] Java parser
+- [ ] Generisk fallback parser
+
+## Fase 6: Advanced Features (Uge 7-8)
+- [ ] Incremental indexing
+- [ ] File watching
+- [ ] Code change detection
+- [ ] Relation mapping (function calls, imports)
+- [ ] Visualization/reporting
+
+## Fase 7: API & Integration (Uge 9)
+- [ ] REST API
+- [ ] WebSocket support (real-time)
+- [ ] IDE plugins (VSCode)
+- [ ] CI/CD integration
+
+## Fase 8: Testing & Documentation (Uge 10)
+- [ ] Unit tests (>80% coverage)
+- [ ] Integration tests
+- [ ] Performance benchmarks
+- [ ] Dokumentation
+- [ ] Eksempler og tutorials
