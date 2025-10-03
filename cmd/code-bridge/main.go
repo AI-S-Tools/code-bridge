@@ -37,6 +37,8 @@ func main() {
 		cmdStats()
 	case "rebuild":
 		cmdRebuild()
+	case "rag":
+		cmdRAG()
 	case "version":
 		fmt.Printf("code-bridge version %s\n", version)
 	default:
@@ -47,11 +49,12 @@ func main() {
 }
 
 func printUsage() {
-	fmt.Println("Code-Bridge - RAG-enabled code indexing and search tool")
+	fmt.Println("Code-Bridge - Code indexing and search tool")
 	fmt.Println("\nUsage:")
 	fmt.Println("  code-bridge init         Initialize code-bridge in current directory")
 	fmt.Println("  code-bridge index        Index the codebase")
 	fmt.Println("  code-bridge search <q>   Search for code elements")
+	fmt.Println("  code-bridge rag          List all indexed code elements (RAG format)")
 	fmt.Println("  code-bridge stats        Show index statistics")
 	fmt.Println("  code-bridge rebuild      Rebuild the index")
 	fmt.Println("  code-bridge version      Show version")
@@ -277,4 +280,38 @@ func cmdRebuild() {
 
 	stats, _ := idx.GetStats()
 	fmt.Printf("  Total elements: %d\n", stats.TotalElements)
+}
+
+func cmdRAG() {
+	cwd, _ := os.Getwd()
+	indexPath := filepath.Join(cwd, ".code-bridge", "codebase.jsonl")
+
+	idx := indexer.New(indexPath, true)
+
+	// Get RAG index
+	ragOutput, err := idx.GetRAGIndex("type")
+	if err != nil {
+		fmt.Printf("Error: %v\n", err)
+		os.Exit(1)
+	}
+
+	// Format output based on flag (default: compact)
+	format := "compact"
+	if len(os.Args) > 2 {
+		format = os.Args[2]
+	}
+
+	var output string
+	switch format {
+	case "file":
+		output = indexer.FormatRAGByFile(ragOutput)
+	case "type":
+		output = indexer.FormatRAGByType(ragOutput)
+	case "compact":
+		fallthrough
+	default:
+		output = indexer.FormatRAGCompact(ragOutput)
+	}
+
+	fmt.Println(output)
 }
