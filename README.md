@@ -17,16 +17,31 @@ Code-Bridge scans your codebase, extracts functions and classes, and stores them
 
 ## Installation
 
+### Quick Install (Linux/macOS)
+
+```bash
+curl -sSL https://raw.githubusercontent.com/AI-S-Tools/code-bridge/master/install.sh | bash
+```
+
+### Using Go
+
 ```bash
 go install github.com/AI-S-Tools/code-bridge/cmd/code-bridge@latest
 ```
 
-Or build from source:
+### From Source
 
 ```bash
 git clone https://github.com/AI-S-Tools/code-bridge.git
 cd code-bridge
+make install
+```
+
+Or manually:
+
+```bash
 go build -o code-bridge ./cmd/code-bridge
+sudo mv code-bridge /usr/local/bin/
 ```
 
 ## Quick Start
