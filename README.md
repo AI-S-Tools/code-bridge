@@ -1,6 +1,15 @@
 # Code-Bridge
 
+[![Release](https://img.shields.io/github/v/release/AI-S-Tools/code-bridge)](https://github.com/AI-S-Tools/code-bridge/releases)
+[![Go Version](https://img.shields.io/badge/go-1.21+-blue.svg)](https://golang.org/)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+
 RAG-enabled code indexing and search tool using JSONL format.
+
+**One-line install (Linux/macOS):**
+```bash
+curl -sSL https://raw.githubusercontent.com/AI-S-Tools/code-bridge/master/install.sh | bash
+```
 
 ## Overview
 
@@ -54,13 +63,51 @@ code-bridge init
 code-bridge index
 
 # Search for code
-code-bridge search "authentication function"
+code-bridge search "handler"
 
-# RAG query
-code-bridge rag "find functions that validate user input"
+# Show statistics
+code-bridge stats
 
-# Add annotation
-code-bridge annotate add --target myFunction --tags "reviewed,critical"
+# Rebuild index (remove duplicates)
+code-bridge rebuild
+```
+
+### Example Output
+
+```bash
+$ code-bridge index
+Scanning files...
+Found 1 files
+Parsing and indexing...
+✓ Indexing complete
+  Files processed: 1
+  Elements indexed: 20
+
+$ code-bridge stats
+Code-bridge Statistics
+
+Total Elements: 20
+Total Size: 19.37 KB
+
+By Type:
+  function: 20
+
+By Language:
+  go: 20
+
+$ code-bridge search "generateCommitMessage"
+Found 3 results:
+
+  function generateQwenCommitMessage
+    main.go:221
+    Parameters: gitDiff string
+    Returns: (string, error)
+
+  function generateClaudeCommitMessage
+    main.go:291
+    Parameters: gitDiff string
+    Returns: (string, error)
+...
 ```
 
 ## Project Status

@@ -118,3 +118,25 @@
 
 ### Status
 - Release automation complete
+
+## 2025-10-03 16:30
+### Tested
+- Tested on git-air project (real-world Go codebase)
+- Successfully indexed 20 functions from main.go
+- Search functionality working perfectly
+- Deduplication confirmed (re-index added 0 duplicates)
+- JSONL format validated with proper structure
+- All commands tested: init, index, search, stats, rebuild
+
+### Results
+- ✅ Installation via curl one-liner working
+- ✅ Scanner finds Go files correctly
+- ✅ Parser extracts functions with full metadata
+- ✅ Indexer stores in valid JSONL format
+- ✅ Search returns accurate results
+- ✅ Deduplication prevents duplicates
+- ✅ Stats show correct overview
+- ✅ Rebuild works without data loss
+
+### Status
+- v0.1.0 released and production-ready
