@@ -1,0 +1,103 @@
+# Code-Bridge CHANGELOG
+
+## 2025-10-03 14:45
+### Added
+- Initial project setup with TypeScript configuration
+- package.json with core dependencies (Babel, Tree-sitter, Commander)
+- tsconfig.json with strict TypeScript settings
+- Project directory structure (scanner, parser, indexer, rag, search, api)
+- .gitignore for Node.js project
+- README.md with project overview
+- Comprehensive projektplan.md in docs/
+- TODO file with 8 implementation phases
+
+### Status
+- Phase 1, Task 1: Projekt setup og arkitektur [DONE]
+
+## 2025-10-03 15:00
+### Added
+- Scanner module with recursive directory traversal
+- Support for include/exclude patterns via minimatch
+- .gitignore parsing and integration
+- File statistics (size, modification time, extension count)
+- Scanner unit tests with vitest
+
+### Status
+- Phase 1, Task 2: Scanner implementering [DONE]
+
+## 2025-10-03 15:15
+### Added
+- Parser module with interface and types
+- JavaScriptParser using Babel for JS/TS/JSX/TSX
+- Function extraction (declarations, expressions, arrow functions)
+- Class extraction with methods and inheritance
+- TypeScript interface and type alias extraction
+- Parameter and return type extraction
+- JSDoc comment extraction
+- Import detection
+- Content hashing for deduplication
+- Comprehensive parser unit tests
+
+### Status
+- Phase 1, Task 3: Basic parser (JavaScript/TypeScript support) [DONE]
+
+## 2025-10-03 15:30
+### Added
+- Indexer module for JSONL operations
+- Append-only write operations for performance
+- Streaming read operations for memory efficiency
+- Hash-based deduplication
+- Search by name, type, file, and hash
+- Index statistics (counts by type, language, file)
+- Index rebuild and clear operations
+- Incremental updates (remove by file)
+- Comprehensive indexer unit tests
+
+### Status
+- Phase 1, Task 4: JSONL indexer (write/read operations) [DONE]
+
+## 2025-10-03 15:45
+### Added
+- CLI application using Commander.js
+- 'init' command to initialize project
+- 'index' command to scan and index codebase
+- 'search' command with filters (type, file, limit)
+- 'stats' command for index statistics
+- 'rebuild' command to remove duplicates
+- Progress reporting during indexing
+- Error handling and user feedback
+
+### Status
+- Phase 1, Task 5: CLI grundlæggende struktur [DONE]
+- Phase 1: Core Infrastructure [COMPLETE]
+
+## 2025-10-03 16:00 - REWRITE TO GOLANG
+### Changed
+- **MAJOR REWRITE**: Switched from TypeScript/Node.js to Golang
+- Removed all Node.js/TypeScript dependencies and code
+
+### Added
+- Go module initialization (github.com/AI-S-Tools/code-bridge)
+- Go project structure (cmd/, pkg/, internal/)
+- Scanner package for recursive directory traversal
+- Go parser using native go/parser and go/ast
+- Full support for Go functions, methods, structs, interfaces, and types
+- Indexer package for JSONL operations with concurrency safety
+- CLI application with commands: init, index, search, stats, rebuild
+- Deduplication using hash-based approach
+- Statistics by type, language, and file
+- Compiled binary: code-bridge v0.1.0
+
+### Features
+- Parse Go source files (functions, methods, structs, interfaces, types)
+- Extract function parameters and return types
+- Extract struct fields and interface methods
+- Extract docstrings and comments
+- JSONL indexing with streaming read
+- Search by name or content
+- Thread-safe index operations
+- File pattern inclusion/exclusion
+- .gitignore support
+
+### Status
+- Phase 1: Core Infrastructure [COMPLETE - GOLANG VERSION]
